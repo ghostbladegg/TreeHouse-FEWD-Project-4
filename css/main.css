@@ -86,8 +86,9 @@ ul {
 	width: 100px;
 	height: 100px;
 	font-size: 5em;
+	position: fixed;
+	left: 0;
 }
-
 
 .btn-right {
 	float: right;
@@ -95,6 +96,8 @@ ul {
 	width: 100px;
 	height: 100px;
 	font-size: 5em;
+	position: fixed;
+	right: 0;
 }
 
 .btn-exit {

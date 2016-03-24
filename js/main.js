@@ -1,3 +1,6 @@
+// enable strict mode
+  "use strict";
+
 // Start of Light Box
   // make div overlay for html
     var $overlay = $("<div class='overlay'></div>");
@@ -22,7 +25,7 @@
     // select gallery anchor
     $(".gallery a").on("click", function() {
       // select parent of selected anchor
-        currentImg = $(this).parent();
+        var currentImg = $(this).parent();
       // add class to selected parent
         currentImg.addClass("selected");
       // prevent img to open by link
@@ -48,24 +51,24 @@
       // set caption on <p> with $captionDesc
         $caption.text($captionDesc);
       // show overlay
-        $overlay.show();
-      // get image from link 
-
+        $overlay.fadeIn();
+      // get image from link  
+    });
 
       // navigation left on click
       $buttonLeft.on("click", function() {
         // select previous gallery li
-          $newImg = $(".gallery .selected").prev("li");
+          var $newImg = $(".gallery .selected").prev("li");
         // get href from previous image
-          $newImgLocation = $newImg.children("a").attr("href");
+          var $newImgLocation = $newImg.children("a").attr("href");
         // remove class on next li ( previous li )
           $newImg.next().removeClass("selected");
         // add class to current li
           $newImg.addClass("selected");
         // get title name
-          $newTitleName = $newImg.children("a").children("img").attr("title");
+          var $newTitleName = $newImg.children("a").children("img").attr("title");
         // get caption
-          $newCaptionDesc = $newImg.children("a").next().text();
+          var $newCaptionDesc = $newImg.children("a").next().text();
         // set image location
           $image.attr("src", $newImgLocation);
         // set title
@@ -78,17 +81,17 @@
       // navigation right on click
       $buttonRight.on("click", function() {
         // select next gallery li
-          $newImg = $(".gallery .selected").next("li");
+          var $newImg = $(".gallery .selected").next("li");
         // get href from next image
-          $newImgLocation = $newImg.children("a").attr("href");
+          var $newImgLocation = $newImg.children("a").attr("href");
         // remove class on previous li ( next li )
           $newImg.prev().removeClass("selected");
         // add class to current li
           $newImg.addClass("selected");
         // get title name
-          $newTitleName = $newImg.children("a").children("img").attr("title");
+          var $newTitleName = $newImg.children("a").children("img").attr("title");
         // get caption
-          $newCaptionDesc = $newImg.children("a").next().text();
+          var $newCaptionDesc = $newImg.children("a").next().text();
         // set image location
           $image.attr("src", $newImgLocation);
         // set title
@@ -97,14 +100,14 @@
           $caption.text($newCaptionDesc);
       });
 
+
       // overlay exit button
       $buttonExit.on("click", function() {
         // remove selected from every .gallery li
           $(".gallery li").removeClass("selected");
         // hide overlay on button click
-          $overlay.hide();
-      });
-    });
+          $overlay.fadeOut();
+      });   
 // End of Light Box
 
 
